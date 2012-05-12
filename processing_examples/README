@@ -1,0 +1,38 @@
+################################################################################
+# README
+################################################################################
+
+################################################################################
+# Install
+################################################################################
+Install processing
+
+http://processing.org/
+
+
+################################################################################
+# Work flow
+################################################################################
+
+Here's how I work under Linux.
+
+1) Download and untar the processing setup. This creates a directory called
+
+processing
+
+in which there is an executable (as well as other subdirectories) called 
+
+processing
+
+2) In this directory create a soft link to the shd_chicago_2012 and the 
+processing_examples subdirectory.
+
+For example, if I am in the processing directory (where the executable lives),
+I would type
+
+    ln -s ~/shd_chicago_2012/ .
+
+3) Start processing. 
+3a) From the Sketchbook IDE, open the shd_chicago_2012/processing_examples/Brownian
+sketch. 
+3b) Run it!
