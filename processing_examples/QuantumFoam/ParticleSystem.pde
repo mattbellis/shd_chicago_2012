@@ -37,7 +37,7 @@ class ParticleSystem {
   void addParticle(float x, float y,int R,int G, int B) {
     particles.add(new Particle(new PVector(x,y),R,G,B));
     particles.add(new Particle(new PVector(x,y),B,G,R));
-    println("here");
+    //println("here");
   }
 
   void addParticle(float x, float y, int pflag) {
@@ -81,7 +81,7 @@ class ParticleSystem {
 
     particles.add(new Particle(new PVector(x,y), new PVector(px0,py0), new PVector(ax0,ay0), energy, pflag));
     particles.add(new Particle(new PVector(x,y), new PVector(px1,py1), new PVector(ax1,ay1), energy, -pflag));
-    println("here");
+    //println("here");
   }
 
   void addParticle(Particle p) {

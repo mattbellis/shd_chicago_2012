@@ -32,7 +32,8 @@ int num = 2000;
 int range = 6;
 
 int quote_timer=0;
-int quote = 0;
+int quote_num=0;
+String quote=" ";
 
 ///////////////////////////////////////////////////////////////////////////////
 // Info for particles
@@ -110,30 +111,53 @@ void draw()
     }
   }
 
-  String s = "";
-  if (quote%3==0)
+  if (quote_timer==0)
   {
-    s = "For those who are not shocked when they first come across quantum theory cannot possibly have understood it.\n- Niels Bohr";
-  }
-  else if (quote%3==1)
-  {
-    s = "I think I can safely say that nobody understands quantum mechanics.\n-Richard Feynman";
-  }
-  else if (quote%3==2)
-  {
-    s = "I do not like it, and I am sorry I ever had anything to do with it.\n-Erwin Schrodinger";
+    quote = qft_quotes();
+    println("here!");
   }
 
   fill(255, 255, 255,200-quote_timer);
-  text(s, 15, 30,400,400); 
+  text(quote, 15, 30,400,400); 
   textSize(24);
 
   quote_timer += 1;
-  if (quote_timer==200)
+
+  if (quote_timer>=200)
   {
     quote_timer=0;
-    quote += 1;
   }
 
+  //exit();
+
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Quotes
+///////////////////////////////////////////////////////////////////////////////
+String qft_quotes()
+{
+  println("Quotes!");
+  String s = "";
+  int r = -1;
+  while (r==quote_num || r==-1)
+  {
+    r = ceil(random(4));
+    println("r: "+r);
+  }
+
+  if (r==1) {
+    s = "For those who are not shocked when they first come across quantum theory cannot possibly have understood it.\n- Niels Bohr";
+  } else if (r==2) {
+    s = "I think I can safely say that nobody understands quantum mechanics.\n-Richard Feynman";
+  } else if (r==3) {
+    s = "I do not like it, and I am sorry I ever had anything to do with it.\n-Erwin Schrodinger";
+  } else if (r==4) {
+    s = "What nature demands from us is not a quantum theory or a wave theory; rather, nature demands from us a synthesis of these two views which thus far has exceeded the mental powers of physicists.\n-Albert Einstein";
+  }
+
+  quote_num=r;
+  return s;
 
 }
