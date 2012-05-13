@@ -5,6 +5,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 ParticleSystem ps;
 
+PFont font;
+
 ///////////////////////////////////////////////////////////////////////////////
 // Minim stuff
 ///////////////////////////////////////////////////////////////////////////////
@@ -28,6 +30,9 @@ int npairs = 0;
 
 int num = 2000;
 int range = 6;
+
+int quote_timer=0;
+int quote = 0;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Info for particles
@@ -103,6 +108,31 @@ void draw()
       ps.addParticle(random(screen_width),random(screen_height),pflag);
       //ps.addParticle(random(screen_width),random(screen_height),1);
     }
+  }
+
+  String s = "";
+  if (quote%3==0)
+  {
+    s = "For those who are not shocked when they first come across quantum theory cannot possibly have understood it.\n- Niels Bohr";
+  }
+  else if (quote%3==1)
+  {
+    s = "I think I can safely say that nobody understands quantum mechanics.\n-Richard Feynman";
+  }
+  else if (quote%3==2)
+  {
+    s = "I do not like it, and I am sorry I ever had anything to do with it.\n-Erwin Schrodinger";
+  }
+
+  fill(255, 255, 255,200-quote_timer);
+  text(s, 15, 30,400,400); 
+  textSize(24);
+
+  quote_timer += 1;
+  if (quote_timer==200)
+  {
+    quote_timer=0;
+    quote += 1;
   }
 
 
