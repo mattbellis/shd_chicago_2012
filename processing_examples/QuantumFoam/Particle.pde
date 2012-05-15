@@ -84,6 +84,8 @@ class Particle {
   boolean dead() {
     if (timer <= 0.0) {
       return true;
+    } else if (loc.x<0 || loc.x>screen_width || loc.y<0 || loc.y>screen_height) {
+      return false;
     } else {
       return false;
     }
